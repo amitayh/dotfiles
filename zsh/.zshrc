@@ -11,6 +11,11 @@ ZSH_THEME="blinks"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias gs="git status"
+alias gc="git commit"
+alias gr="git checkout"
+alias ga="git add"
+alias gl="git lola"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
