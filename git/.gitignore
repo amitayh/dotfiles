@@ -1,2 +1,9 @@
 .DS_Store
 .idea
+*.iml
+node_modules
+package-lock.json
+target
+.vscode
+.metals
+/Users/amitayh/dev/work/crm/workflow-server/*

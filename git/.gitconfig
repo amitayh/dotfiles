@@ -7,6 +7,7 @@
 
 [core]
     excludesfile = ~/.gitignore
+    autocrlf = input
 
 [alias]
     st = status
@@ -23,3 +24,28 @@
  
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
+    graph = log --graph --oneline --decorate --date-order --color --boundary --all
+
+[filter "lfs"]
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
+
+[push]
+    default = simple
+
+[merge]
+    tool = intellij
+
+[mergetool "intellij"]
+    cmd = idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
+
+[diff]
+    tool = intellij
+
+[difftool "intellij"]
+    cmd = idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+
+[includeIf "gitdir:~/dev/work/"]
+    path = ~/.gitconfig-work
